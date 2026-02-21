@@ -1,115 +1,87 @@
-create a project with full stack development to detect fraud websites usin some below mentioned techniques and to give alerts to the users to warn them with safety warnings.
- Misspellings in the URL
-What to check
-Letters swapped or replaced: amaz0n, micros0ft
+Create a full-stack AI-powered URL Legitimacy Detection project.
 
-Extra dots or dashes: pay-pal-login.com
+PROJECT GOAL:
+Build a web application that analyzes a given URL and determines whether it is Legitimate or Suspicious/Phishing based on example logic patterns and AI analysis.
 
-Why it matters
-Scammers rely on people reading fast and missing tiny changes.
+TECH STACK:
+Frontend: React (with modern UI)
+Backend: Node.js + Express
+AI Integration: OpenAI API (or any AI API)
+Database: MongoDB (optional, for logging URL checks)
+Styling: Clean modern UI with Tailwind CSS
 
-✅ Genuine site → exact spelling
-🚩 Fraud site → small spelling tricks
+CORE FEATURES:
+1. User enters a URL in an input field.
+2. Backend analyzes URL using:
+   - Rule-based logic:
+        - Check HTTPS
+        - Check domain age (mock if needed)
+        - Check suspicious keywords (login, verify, free, win, etc.)
+        - Check IP-based URLs
+        - Check long/random subdomains
+   - AI-based analysis using OpenAI API:
+        - Send URL and extracted features to AI
+        - AI responds with:
+            {
+              verdict: "Legitimate" | "Suspicious",
+              confidence: percentage,
+              explanation: short reason
+            }
+3. Display result with:
+   - Status badge (Green = Legit, Red = Suspicious)
+   - Confidence %
+   - Explanation text
+4. Store scan history in MongoDB with:
+   - URL
+   - Verdict
+   - Confidence
+   - Timestamp
 
-2️⃣ Extra words in the domain name
-What to check
-Words like: login, verify, secure, support
+PROJECT STRUCTURE:
+- /client (React app)
+- /server (Node + Express backend)
+- .env file for API keys
+- Modular folder structure:
+    - controllers
+    - services
+    - routes
+    - utils (URL analysis logic)
+    - models (if using MongoDB)
 
-Example scam: facebook-secure-login.com
+BACKEND REQUIREMENTS:
+- POST /analyze endpoint
+- Validate input URL
+- Extract domain details
+- Apply rule-based scoring system
+- Call OpenAI API using proper async/await
+- Combine rule score + AI response for final verdict
+- Proper error handling
 
-Why it matters
-Real companies don’t add extra security words in their main domain.
+FRONTEND REQUIREMENTS:
+- Clean UI with:
+    - Input field
+    - Analyze button
+    - Loading spinner
+    - Result card
+    - Scan history section
+- Responsive design
+- Proper API integration
 
-✅ Genuine → facebook.com
-🚩 Fraud → facebook-login-help.com
+EXTRA:
+- Add basic rate limiting
+- Add input validation
+- Add loading state
+- Add environment configuration
+- Include README with setup instructions
 
-3️⃣ Weird domain endings (TLDs)
-What to check
-Suspicious endings: .xyz, .top, .tk, .ru, .ml
+IMPORTANT:
+- Use modern JavaScript (ES6+)
+- Use async/await
+- Use proper project architecture
+- Add comments explaining logic
+- Provide example OpenAI API call implementation
+- Mock AI response if API key not available
 
-Why it matters
-Scammers prefer cheap, easy-to-register domains.
+Generate complete working code for all files.
 
-⚠️ Note: Not all are scams — but risk is higher when combined with other signs.
-
-4️⃣ Web page cloning (fake copy of a real site)
-What to check
-Logo, layout, and colors look identical
-
-Buttons don’t work properly
-
-Login form redirects to strange URLs
-
-How to detect
-Right-click → image search → see if images are copied
-
-Compare with the real website side-by-side
-
-Why it matters
-Cloned sites are used to steal passwords and card details.
-
-5️⃣ SSL / HTTPS (🔒)
-What to check
-URL starts with https://
-
-Click 🔒 → certificate matches domain name
-
-Why it matters
-❌ No SSL = unsafe, avoid
-
-✅ SSL = encrypted connection
-
-⚠️ Important: SSL does not guarantee legitimacy. Many scam sites use free SSL.
-
-6️⃣ Checking genuineness by searching the real website
-What to do
-Search the brand name on Google
-
-Open the official site (top result)
-
-Compare domain name exactly
-
-Why it matters
-Scam sites cannot replace the real official domain.
-
-Example:
-
-Real: bankname.com
-
-Scam: bankname-verification.net
-
-7️⃣ Access to personal data (camera, location, mic)
-What to check
-Browser popup asking for:
-
-Camera
-
-Microphone
-
-Location
-
-Notifications
-
-Why it matters
-🚩 Huge red flag if:
-
-A normal site asks for camera or mic
-
-A login or shopping site requests location access
-
-✅ Legit sites ask only when necessary (e.g. maps, video calls)
-
-Final risk rule (easy to remember)
-If a site has 3 or more red flags, treat it as fraud.
-
-Feature	Risk Level
-Misspellings	High
-Extra words	High
-Weird endings	Medium
-Page cloning	Very High
-No SSL	Very High
-Data access requests	Very High
-
-
-
-using html,css,javascript and python coding only
+using html,css,javascript
